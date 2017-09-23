@@ -7,6 +7,7 @@ require 'rspec/rails'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+require 'support/committee_rails_openapi2'
 require 'support/factory_girl'
 
 RSpec.configure do |config|
@@ -18,6 +19,7 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 
+  config.include CommittteeRailsOpenapi2
   config.include RSpec::DefaultHttpHeader
   config.include RSpec::JsonMatcher
 
