@@ -27,6 +27,7 @@ group :test do
   gem 'committee'
   gem 'committee-rails'
   gem 'factory_girl_rails'
+  gem 'rspec-default_http_header'
   gem 'rspec-json_matcher'
   gem 'rspec-rails'
 end
