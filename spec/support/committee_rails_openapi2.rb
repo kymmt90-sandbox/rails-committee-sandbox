@@ -5,8 +5,12 @@ module CommittteeRailsOpenapi2
     @committee_schema ||=
       begin
         driver = Committee::Drivers::OpenAPI2.new
-        schema_hash = JSON.parse(File.read(Rails.root.join('docs', 'swagger.json')))
+        schema_hash = JSON.parse(File.read(schema_path))
         driver.parse(schema_hash)
       end
+  end
+
+  def schema_path
+    Rails.root.join('docs', 'swagger.json')
   end
 end
