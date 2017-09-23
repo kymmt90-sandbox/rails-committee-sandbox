@@ -173,6 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  committee
   committee-rails
   factory_girl_rails
   jbuilder (~> 2.5)
