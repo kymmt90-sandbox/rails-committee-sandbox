@@ -103,21 +103,26 @@
   },
   "definitions": {
     "User": {
-      "allOf": [
-        {
-          "required": [
-            "id"
-          ],
-          "properties": {
-            "id": {
-              "type": "integer"
-            }
-          }
+      "required": [
+        "id",
+        "email",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
         },
-        {
-          "$ref": "#/definitions/NewUser"
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
         }
-      ]
+      },
+      "additionalProperties": false
     },
     "NewUser": {
       "required": [
@@ -134,7 +139,8 @@
         "age": {
           "type": "integer"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "Error": {
       "required": [
@@ -148,7 +154,8 @@
         "detail": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "Errors": {
       "properties": {
@@ -158,7 +165,8 @@
             "$ref": "#/definitions/Error"
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
