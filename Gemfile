@@ -24,6 +24,7 @@ group :development do
 end
 
 group :test do
+  gem 'committee'
   gem 'committee-rails'
   gem 'factory_girl_rails'
   gem 'rspec-json_matcher'
