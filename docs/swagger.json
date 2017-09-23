@@ -8,7 +8,6 @@
     }
   },
   "host": "github.com",
-  "basePath": "",
   "schemes": [
     "http"
   ],
@@ -38,6 +37,32 @@
                   }
                 }
               }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "create a user",
+        "operationId": "userCreate",
+        "tags": [
+          "users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "user params",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A user",
+            "schema": {
+              "$ref": "#/definitions/User"
             }
           }
         }
@@ -78,15 +103,28 @@
   },
   "definitions": {
     "User": {
+      "allOf": [
+        {
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/NewUser"
+        }
+      ]
+    },
+    "NewUser": {
       "required": [
-        "id",
         "email",
         "name"
       ],
       "properties": {
-        "id": {
-          "type": "integer"
-        },
         "email": {
           "type": "string"
         },

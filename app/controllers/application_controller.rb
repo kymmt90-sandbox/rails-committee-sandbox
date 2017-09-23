@@ -7,4 +7,10 @@ class ApplicationController < ActionController::API
     errors = [{ title: "#{error.model} not found", detail: error.id.to_s }]
     render json: { errors: errors }, status: :not_found
   end
+
+  def render_invalid_params_error(object)
+    invalid_params = object.errors.keys
+    errors = invalid_params.map { |param| { title: 'Invalid parameter', detail: param.to_s } }
+    render json: { errors: errors }, status: :unprocessable_entity
+  end
 end

@@ -24,7 +24,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET /user/:id', json: :true do
+  describe 'GET /users/:id', json: :true do
     let!(:user) { create(:user) }
 
     it 'API定義と一致する' do
@@ -59,6 +59,38 @@ RSpec.describe 'Users', type: :request do
               detail: "#{invalid_id}"
             }
           ]
+        }
+        expect(response.body).to be_json_as expected
+      end
+    end
+  end
+
+  describe 'POST /users', json: :true do
+    let(:user_attributes) { attributes_for(:user) }
+    let(:params) {
+      {
+        user: {
+          email: user_attributes[:email],
+          name: user_attributes[:name],
+          age: user_attributes[:age],
+        }
+      }
+    }
+
+    it 'API定義と一致する' do
+      post '/users', params: params.to_json
+      assert_schema_conform
+    end
+
+    context '正しいパラメータのとき' do
+      it '201 Createdを返す' do
+        expect { post '/users', params: params.to_json }.to change(User, :count).by(1)
+        expect(response.status).to eq 201
+        expected = {
+          id: Integer,
+          email: user_attributes[:email],
+          name: user_attributes[:name],
+          age: user_attributes[:age]
         }
         expect(response.body).to be_json_as expected
       end
