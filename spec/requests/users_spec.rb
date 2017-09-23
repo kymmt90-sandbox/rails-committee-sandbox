@@ -4,6 +4,11 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users', json: :true do
     before { create_pair(:user) }
 
+    it 'API定義と一致する' do
+      get '/users'
+      assert_schema_conform
+    end
+
     it '200 OKが返る' do
       get "/users"
       expect(response.status).to eq 200
@@ -21,6 +26,11 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /user/:id', json: :true do
     let!(:user) { create(:user) }
+
+    it 'API定義と一致する' do
+      get "/users/#{user.id}"
+      assert_schema_conform
+    end
 
     context '存在するuserのとき' do
       it '200 OKが返る' do
