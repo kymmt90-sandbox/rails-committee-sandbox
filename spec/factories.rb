@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    email 'foo@example.com'
+    sequence(:email) { |n| "foo#{n}@example.com" }
     name 'Foo Bar'
-    age nil
+    age 27
   end
 end
