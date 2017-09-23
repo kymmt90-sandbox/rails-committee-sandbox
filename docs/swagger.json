@@ -59,7 +59,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "A user",
             "schema": {
               "$ref": "#/definitions/User"
