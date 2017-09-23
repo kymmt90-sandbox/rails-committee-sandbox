@@ -16,3 +16,5 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 end
+
+require 'support/factory_girl'
