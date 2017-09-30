@@ -14,3 +14,16 @@ module CommittteeRailsOpenapi2
     Rails.root.join('docs', 'swagger.json')
   end
 end
+
+module ProcessWithAssertSchemaConform
+  include CommittteeRailsOpenapi2
+
+  def process(*args)
+    super *args
+    assert_schema_conform
+  end
+end
+
+class ActionDispatch::Integration::Session
+  prepend ProcessWithAssertSchemaConform
+end
