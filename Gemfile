@@ -13,6 +13,7 @@ gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'filewatcher'
   gem 'json_schema', '~> 0.15.0'
   gem 'open_api_parser'
   gem 'pry-byebug'
