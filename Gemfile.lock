@@ -38,6 +38,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     awesome_print (1.8.0)
     builder (3.2.3)
@@ -67,7 +69,7 @@ GEM
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     json (2.1.0)
-    json_schema (0.17.0)
+    json_schema (0.15.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -86,12 +88,16 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    open_api_parser (1.2.1)
+      addressable (~> 2.3)
+      json_schema (~> 0.15.0)
     pry (0.11.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
+    public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
     rack-cors (1.0.1)
@@ -179,7 +185,9 @@ DEPENDENCIES
   committee-rails
   factory_girl_rails
   jbuilder (~> 2.5)
+  json_schema (~> 0.15.0)
   listen (>= 3.0.5, < 3.2)
+  open_api_parser
   pry-byebug
   puma (~> 3.7)
   rack-cors
@@ -193,4 +201,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
